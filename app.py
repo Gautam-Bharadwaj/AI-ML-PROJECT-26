@@ -110,23 +110,29 @@ header {visibility: hidden;}
 """, unsafe_allow_html=True)
 
 # Main UI Layout
-st.markdown('<span class="label-mono">Powered by Agentic Intelligence</span>', unsafe_allow_html=True)
-st.markdown('<h1 class="hero-title">Automate Legal<br>Risk Analysis.</h1>', unsafe_allow_html=True)
-st.markdown('<p class="hero-subtitle">Upload complex contracts and identify high-risk clauses in seconds, instantly.</p>', unsafe_allow_html=True)
+col_hero, col_upload = st.columns([1.5, 1])
 
-# Sidebar - Uplink Terminal
-with st.sidebar:
+with col_hero:
+    st.markdown('<span class="label-mono">Powered by Agentic Intelligence</span>', unsafe_allow_html=True)
+    st.markdown('<h1 class="hero-title">Automate Legal<br>Risk Analysis.</h1>', unsafe_allow_html=True)
+    st.markdown('<p class="hero-subtitle">Upload complex contracts and identify high-risk clauses in seconds, instantly.</p>', unsafe_allow_html=True)
+
+with col_upload:
     st.markdown('<br><br>', unsafe_allow_html=True)
+    st.markdown('<div class="glass-container" style="padding: 24px;">', unsafe_allow_html=True)
     st.markdown('<span class="label-mono">Uplink Terminal</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="font-weight:700;">Data Ingestion</h3>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Drop PDF", type="pdf", label_visibility="collapsed")
-    
     if uploaded_file:
         st.markdown('<div class="risk-tag risk-low" style="text-align:center;">UPLINK_SUCCESSFUL</div>', unsafe_allow_html=True)
-    
-    st.markdown('<br>' * 10, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Sidebar - System Info Only
+with st.sidebar:
+    st.markdown('<br>' * 2, unsafe_allow_html=True)
     st.markdown('<span class="label-mono">System Status</span>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Core Engine: Active<br>Latency: 42ms<br>Version: 2.0.1</p>', unsafe_allow_html=True)
+    st.markdown('---', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:0.7rem; color:rgba(255,255,255,0.2);">LEGAL_NODE_01 // SECURE_ENCRYPTION_ACTIVE</p>', unsafe_allow_html=True)
 
 # Logic Section
 if uploaded_file:
