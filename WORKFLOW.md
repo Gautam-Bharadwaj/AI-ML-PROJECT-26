@@ -54,6 +54,23 @@ stateDiagram-v2
 This map outlines the specialized roles for Phase 1 and Phase 2.
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#1f2937',
+    'textColor': '#ffffff',
+    'mainBkg': '#1f2937',
+    'nodeTextColor': '#ffffff',
+    'cScale0': '#4f46e5',
+    'cScale1': '#0891b2',
+    'cScale2': '#059669',
+    'cScaleLabel0': '#ffffff',
+    'cScaleLabel1': '#ffffff',
+    'cScaleLabel2': '#ffffff',
+    'cScale3': '#7c3aed',
+    'cScaleLabel3': '#ffffff'
+  }
+}}%%
 mindmap
   root((fa:fa-project-diagram Project 26))
     ::icon(fa fa-users)
@@ -62,6 +79,7 @@ mindmap
       Data Engineering
       PDF Extraction Logic
       Text Preprocessing
+      Dataset Preparation Pipeline
     Mohit Kourav
       ::icon(fa fa-brain)
       ML Model Training
