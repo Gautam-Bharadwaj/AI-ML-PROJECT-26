@@ -26,3 +26,13 @@ def predict_risk(text):
         }
         results.append(result)
         
+    return results
+
+if __name__ == '__main__':
+    sample_texts = [
+        "The company shall not make any investments without prior approval.",
+        "We agree to pay the standard fee for the services rendered."
+    ]
+    predictions = predict_risk(sample_texts)
+    for p in predictions:
+        print(f"Risk: {p['is_risky']} | Prob: {p['risk_probability']:.2f} | Text: {p['text']}")
