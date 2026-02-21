@@ -26,3 +26,6 @@ def train_and_save_model():
     
     model.fit(X_train, y_train)
     
+    predictions = model.predict(X_test)
+    print(classification_report(y_test, predictions))
+    
