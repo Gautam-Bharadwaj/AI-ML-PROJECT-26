@@ -72,7 +72,7 @@ This map outlines the specialized roles for Phase 1 and Phase 2.
   }
 }}%%
 mindmap
-  root((fa:fa-project-diagram Project 26))
+  root((fa:fa-project-diagram AI-ML))
     ::icon(fa fa-users)
     Kumar Gautam
       ::icon(fa fa-database)
