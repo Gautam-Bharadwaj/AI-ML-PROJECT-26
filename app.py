@@ -106,6 +106,26 @@ header {visibility: hidden;}
 .stFileUploader section:hover {
     border-color: #58A6FF !important;
 }
+
+/* Force Browse Files button to be permanent black */
+.stFileUploader button {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stFileUploader button:hover {
+    border-color: #58A6FF !important;
+    background-color: #000000 !important;
+    color: #58A6FF !important;
+}
+
+.stFileUploader button:active {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
