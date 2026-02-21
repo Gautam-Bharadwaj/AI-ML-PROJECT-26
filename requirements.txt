@@ -2,5 +2,7 @@ streamlit
 pandas
 scikit-learn
 nltk
-PyMuPDF
+PyMuPDF==1.25.3
 spacy
+pymupdf
+python-dotenv
