@@ -37,20 +37,22 @@ header {visibility: hidden;}
 
 /* Typography */
 .hero-title {
-    font-size: 5.5rem;
+    font-size: 7rem;
     font-weight: 800;
     letter-spacing: -0.05em;
-    line-height: 1;
-    margin-bottom: 16px;
+    line-height: 1.1;
+    margin-bottom: 24px;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: 48px;
+    max-width: 800px;
+    line-height: 1.4;
 }
 
 .label-mono {
