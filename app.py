@@ -52,14 +52,19 @@ st.markdown("<p style='font-size: 1.1rem; color: #8b949e;'>Advanced Risk Assessm
 st.markdown("---")
 
 with st.sidebar:
-    st.header("Upload Document")
-    uploaded_file = st.file_uploader("Choose a PDF contract", type="pdf")
+    st.markdown("## 📡 Uplink Terminal")
+    uploaded_file = st.file_uploader("Load PDF Data stream", type="pdf")
     
     if uploaded_file:
-        st.success("File uploaded successfully!")
+        st.success("Data stream synchronized.")
         
     st.markdown("---")
-    st.info("This tool identifies potential risks in legal contracts using AI-driven analysis.")
+    st.markdown("""
+        <div style="font-size: 0.9rem; color: #8b949e; line-height: 1.4;">
+            <p><strong>MISSION:</strong> Identify high-priority risks and anomalies in legal structures.</p>
+            <p><strong>STATUS:</strong> Neural Network Active</p>
+        </div>
+    """, unsafe_allow_html=True)
 
 if uploaded_file:
     # Save file temporarily
