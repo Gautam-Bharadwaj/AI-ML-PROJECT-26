@@ -28,20 +28,28 @@ AI-driven system for analyzing legal documents to identify and classify risky cl
 * **UI:** Streamlit
 * **Hosting:** Streamlit Community Cloud
 
-## Milestone 1 Roadmap
-- [x] Structure Setup
-- [x] Basic Preprocessing Logic
-- [x] Clause Segmentation Logic
-- [ ] PDF Text Extraction Script
-- [ ] Model Training on Kaggle/IndianKanoon Dataset
-- [ ] Streamlit UI Implementation
+## Project Roadmap
+- [x] Directory structure setup (Kumar Gautam)
+- [x] Basic text cleaning logic (Kumar Gautam)
+- [x] Clause splitting methods (Kumar Gautam)
+- [x] PDF text extraction helpers (Kumar Gautam)
+- [x] Automated data preparation script (Kumar Gautam)
+- [ ] Training the ML model (Mohit Kourav)
+- [ ] Building the Streamlit interface (Karan Thakur)
 
-## Setup
-1. Install dependencies:
+## How to Run (Gautam's Workflow)
+1. **Install what's needed:**
    ```bash
    pip install -r requirements.txt
    ```
-2. Run the App:
+2. **Setup the Dataset:**
+   Run this to clean your raw data and get it ready for training:
+   ```bash
+   python3 src/prepare_dataset.py
+   ```
+   *This will create: `data/processed/cleaned_legal_clauses.csv`*
+
+3. **Launch the App:**
    ```bash
    streamlit run app.py
    ```
