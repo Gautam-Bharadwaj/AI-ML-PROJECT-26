@@ -3,11 +3,10 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# Ensure NLTK data is downloaded
 try:
     nltk.data.find('corpora/stopwords')
     nltk.data.find('corpora/wordnet')
-except LookupError:
+except (LookupError, AttributeError):
     nltk.download('stopwords')
     nltk.download('wordnet')
 
@@ -15,15 +14,18 @@ lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words('english'))
 
 def clean_text(text):
-    """
-    Cleans the input text by:
-    1. Converting to lowercase
-    2. Removing special characters and numbers
-    3. Removing stopwords
-    4. Lemmatization
-    """
-    text = str(text).lower()
+    if not isinstance(text, str):
+        return ""
+    
+    text = text.lower()
     text = re.sub(r'[^a-z\s]', '', text)
-    words = text.split()
-    cleaned = [lemmatizer.lemmatize(w) for w in words if w not in stop_words]
-    return " ".join(cleaned)
+    
+    tokens = text.split()
+    tokens = [lemmatizer.lemmatize(t) for t in tokens if t not in stop_words and len(t) > 2]
+    
+    return " ".join(tokens)
+
+def preprocess_dataframe(df, text_col='clause_text'):
+    print(f"-> Processing {len(df)} rows...")
+    df['cleaned_text'] = df[text_col].apply(clean_text)
+    return df
