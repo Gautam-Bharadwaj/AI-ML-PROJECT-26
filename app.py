@@ -37,7 +37,7 @@ header {visibility: hidden;}
 
 /* Typography */
 .hero-title {
-    font-size: 4rem;
+    font-size: 5.5rem;
     font-weight: 800;
     letter-spacing: -0.05em;
     line-height: 1;
@@ -97,8 +97,8 @@ header {visibility: hidden;}
 
 /* Custom File Uploader Style */
 .stFileUploader section {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 2px dashed rgba(255, 255, 255, 0.1) !important;
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 20px !important;
     padding: 40px !important;
 }
