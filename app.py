@@ -139,11 +139,17 @@ with col_hero:
 
 with col_upload:
     st.markdown('<br><br>', unsafe_allow_html=True)
-    st.markdown('<div class="glass-container" style="padding: 24px;">', unsafe_allow_html=True)
+    st.markdown('<div class="glass-container" style="padding: 32px; text-align: center; border-style: dashed;">', unsafe_allow_html=True)
     st.markdown('<span class="label-mono">Uplink Terminal</span>', unsafe_allow_html=True)
+    st.markdown('<h3 style="font-weight:600; font-size:1.1rem; margin-top:10px;">Audit Dispatch</h3>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 24px;">Drop encoded legal document to begin structural risk evaluation.</p>', unsafe_allow_html=True)
+    
     uploaded_file = st.file_uploader("Drop PDF", type="pdf", label_visibility="collapsed")
+    
     if uploaded_file:
-        st.markdown('<div class="risk-tag risk-low" style="text-align:center;">UPLINK_SUCCESSFUL</div>', unsafe_allow_html=True)
+        st.markdown('<div class="risk-tag risk-low" style="text-align:center; margin-top: 15px;">UPLINK_SUCCESSFUL</div>', unsafe_allow_html=True)
+    else:
+        st.markdown('<p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); margin-top: 20px;">SECURITY_PROVISION: AES-256 // MAX_FILE_SIZE: 200MB</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Logic Section
