@@ -29,3 +29,12 @@ def train_and_save_model():
     predictions = model.predict(X_test)
     print(classification_report(y_test, predictions))
     
+    models_dir = os.path.join(base_dir, 'models')
+    os.makedirs(models_dir, exist_ok=True)
+    
+    model_path = os.path.join(models_dir, 'risk_model.pkl')
+    joblib.dump(model, model_path)
+    print("Model training complete and saved.")
+
+if __name__ == '__main__':
+    train_and_save_model()
