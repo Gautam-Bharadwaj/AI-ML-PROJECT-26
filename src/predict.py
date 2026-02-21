@@ -16,3 +16,11 @@ def predict_risk(text):
     
     prediction = model.predict(text)
     probabilities = model.predict_proba(text)
+    
+    results = []
+    for i in range(len(text)):
+        result = {
+            'text': text[i],
+            'is_risky': bool(prediction[i]),
+            'risk_probability': float(probabilities[i][1])
+        }
