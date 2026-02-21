@@ -34,7 +34,11 @@ AI-driven system for analyzing legal documents to identify and classify risky cl
 - [x] Clause splitting methods (Kumar Gautam)
 - [x] PDF text extraction helpers (Kumar Gautam)
 - [x] Automated data preparation script (Kumar Gautam)
-- [ ] Training the ML model (Mohit Kourav)
+- [x] ML Model Training & Pipeline (Mohit Kourav)
+    - [x] TF-IDF Vectorization logic
+    - [x] RandomForest Classification model
+    - [x] Model persistence (saving to .pkl)
+    - [x] Risk prediction utility
 - [ ] Building the Streamlit interface (Karan Thakur)
 
 ## How to Run (Workflow)
