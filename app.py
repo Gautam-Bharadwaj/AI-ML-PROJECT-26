@@ -5,150 +5,156 @@ from src.extract import extract_text_from_pdf
 from src.clause_splitter import split_into_clauses
 from src.predict import predict_risk
 
-st.set_page_config(page_title="Contract Risk Analyzer", page_icon="⚖️", layout="wide")
+st.set_page_config(page_title="Contract Risk Matrix", page_icon="⚖️", layout="wide")
 
+# Inspiration: Succesship. Clean, off-white, soft glows, HUD-style typography.
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap');
     
     .stApp {
-        background: radial-gradient(circle at 50% 50%, #0d1117 0%, #010409 100%);
-        color: #e6edf3;
+        background-color: #FAFAFA;
+        background-image: radial-gradient(circle at 0% 0%, rgba(88, 166, 255, 0.05) 0%, transparent 50%),
+                          radial-gradient(circle at 100% 100%, rgba(88, 166, 255, 0.05) 0%, transparent 50%);
+        color: #1F2328;
         font-family: 'Inter', sans-serif;
     }
     
-    .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 24px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    .stHeader {
+        background: transparent;
     }
     
-    .high-risk {
-        border-left: 4px solid #ff4b4b;
-        background: linear-gradient(90deg, rgba(255, 75, 75, 0.1) 0%, rgba(255, 75, 75, 0.02) 100%);
+    /* HUD Header styling */
+    .hud-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #8b949e;
+        margin-bottom: 4px;
     }
     
-    .low-risk {
-        border-left: 4px solid #28a745;
-        background: linear-gradient(90deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.02) 100%);
+    .main-title {
+        font-weight: 800;
+        font-size: 2.5rem;
+        letter-spacing: -0.03em;
+        color: #000000;
+        margin-top: -10px;
     }
-
-    h1, h2, h3 {
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: #58a6ff;
+    
+    /* Clean Minimalist Cards */
+    .status-card {
+        background: white;
+        border: 1px solid #E1E4E8;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    
+    .risk-card {
+        background: white;
+        border: 1px solid #E1E4E8;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 12px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .risk-high {
+        border-left: 4px solid #D73A49;
+    }
+    
+    .risk-low {
+        border-left: 4px solid #28A745;
+    }
+    
+    /* Sidebar Styling */
+    section[data-testid="stSidebar"] {
+        background-color: #F6F8FA !important;
+        border-right: 1px solid #E1E4E8;
+    }
+    
+    .sidebar-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #57606A;
+        margin-bottom: 8px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-st.image("/Users/karanthakur/.gemini/antigravity/brain/d5dfa2a2-627e-4317-a1a2-c378ff4115a4/futuristic_legal_header_bg_1771669071836.png", use_container_width=True)
-st.title("⚖️ Legal Intelligence Matrix")
-st.markdown("<p style='font-size: 1.1rem; color: #8b949e;'>Advanced Risk Assessment & Clause Classification Agent</p>", unsafe_allow_html=True)
+# HUD Header
+st.markdown('<p class="hud-label">SYSTEM : LEGAL_INTELLIGENCE_UNIT</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">Contract Risk Matrix</h1>', unsafe_allow_html=True)
 st.markdown("---")
 
 with st.sidebar:
-    st.markdown("## 📡 Uplink Terminal")
-    uploaded_file = st.file_uploader("Load PDF Data stream", type="pdf")
+    st.markdown('<p class="sidebar-label">DATA UPLINK TERMINAL</p>', unsafe_allow_html=True)
+    uploaded_file = st.file_uploader("", type="pdf", label_visibility="collapsed")
     
     if uploaded_file:
-        st.success("Data stream synchronized.")
+        st.success("SYNC_COMPLETE")
         
     st.markdown("---")
     st.markdown("""
-        <div style="font-size: 0.9rem; color: #8b949e; line-height: 1.4;">
-            <p><strong>MISSION:</strong> Identify high-priority risks and anomalies in legal structures.</p>
-            <p><strong>STATUS:</strong> Neural Network Active</p>
+        <div style="font-size: 0.8rem; color: #57606A;">
+            <p><strong>STATUS:</strong> NOMINAL</p>
+            <p><strong>VERSION:</strong> 1.0.2-BETA</p>
         </div>
     """, unsafe_allow_html=True)
 
 if uploaded_file:
-    # Save file temporarily
     temp_path = "temp_contract.pdf"
     with open(temp_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
         
-    with st.spinner("⚡ Initializing Neural Core and Parsing Data Streams..."):
+    with st.spinner("ANALYZING_DATA_STREAMS..."):
         text = extract_text_from_pdf(temp_path)
         clauses = split_into_clauses(text)
-        
-        results = []
-        for clause in clauses:
-            label, score = predict_risk(clause)
-            results.append({
-                "clause": clause,
-                "label": label,
-                "score": score
-            })
+        results = [{"clause": c, "label": predict_risk(c)[0], "score": predict_risk(c)[1]} for c in clauses]
             
-    # Cleanup
     if os.path.exists(temp_path):
         os.remove(temp_path)
 
-    # Risk Dashboard
-    st.markdown("### 📊 Neural Risk Analysis Dashboard")
     df = pd.DataFrame(results)
-    
-    col1, col2, col3 = st.columns(3)
-    total_clauses = len(df)
     high_risk_count = len(df[df['label'] == "High Risk"])
-    low_risk_count = total_clauses - high_risk_count
+    low_risk_count = len(df) - high_risk_count
+
+    # Metrics HUD
+    st.markdown('<p class="hud-label">TELEMETRY : RISK_PROFILE</p>', unsafe_allow_html=True)
+    m1, m2, m3 = st.columns(3)
     
-    with col1:
-        st.markdown(f"""
-            <div class="glass-card">
-                <p style='color: #8b949e; font-size: 0.9rem;'>Total Data Segments</p>
-                <h2 style='color: #58a6ff;'>{total_clauses}</h2>
-            </div>
-        """, unsafe_allow_html=True)
-        
-    with col2:
-        st.markdown(f"""
-            <div class="glass-card" style="border-top: 2px solid #ff4b4b;">
-                <p style='color: #8b949e; font-size: 0.9rem;'>High-Risk Anomalies</p>
-                <h2 style='color: #ff4b4b;'>{high_risk_count}</h2>
-            </div>
-        """, unsafe_allow_html=True)
-        
-    with col3:
-        st.markdown(f"""
-            <div class="glass-card" style="border-top: 2px solid #28a745;">
-                <p style='color: #8b949e; font-size: 0.9rem;'>Safe Protocols</p>
-                <h2 style='color: #28a745;'>{low_risk_count}</h2>
-            </div>
-        """, unsafe_allow_html=True)
+    with m1:
+        st.markdown(f'<div class="status-card"><p class="hud-label">TOTAL_SEGMENTS</p><h2>{len(df)}</h2></div>', unsafe_allow_html=True)
+    with m2:
+        st.markdown(f'<div class="status-card"><p class="hud-label" style="color:#D73A49">HIGH_ANOMALIES</p><h2 style="color:#D73A49">{high_risk_count}</h2></div>', unsafe_allow_html=True)
+    with m3:
+        st.markdown(f'<div class="status-card"><p class="hud-label" style="color:#28A745">SAFE_PROTOCOLS</p><h2 style="color:#28A745">{low_risk_count}</h2></div>', unsafe_allow_html=True)
     
     st.markdown("---")
-    
-    # Detailed Analysis
-    st.markdown("### 🔍 Deep Core Analysis")
+    st.markdown('<p class="hud-label">CORE_ANALYSIS : CLAUSE_BY_CLAUSE</p>', unsafe_allow_html=True)
     
     for _, row in df.iterrows():
-        st_class = "high-risk" if row['label'] == "High Risk" else "low-risk"
-        icon = "🔴" if row['label'] == "High Risk" else "🟢"
+        r_class = "risk-high" if row['label'] == "High Risk" else "risk-low"
+        r_color = "#D73A49" if row['label'] == "High Risk" else "#28A745"
         
         st.markdown(f"""
-            <div class="glass-card {st_class}">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: bold; letter-spacing: 0.1em; color: #58a6ff;">{icon} {row['label'].upper()}</span>
-                    <span class="risk-score" style="color: #8b949e;">INITIATING PROBABILITY: {row['score']:.2f}</span>
+            <div class="risk-card {r_class}">
+                <div style="display:flex; justify-content:space-between;">
+                    <span style="font-family:'JetBrains Mono', monospace; font-size:0.7rem; font-weight:bold; color:{r_color};">{row['label'].upper()}</span>
+                    <span style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:#8b949e;">CONFIDENCE: {row['score']:.2f}</span>
                 </div>
-                <div style="margin-top: 15px; color: #d1d5db; line-height: 1.6;">
+                <div style="margin-top:12px; font-size:0.95rem; line-height:1.5; color:#24292F;">
                     {row['clause']}
-                </div>
-                <div style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
-                    <span style="font-size: 0.8rem; color: #8b949e; font-style: italic;">AI Insight: This segment contains patterns typical of {row['label'].lower()} scenarios.</span>
                 </div>
             </div>
         """, unsafe_allow_html=True)
 else:
     st.markdown("""
-        <div class="glass-card" style="text-align: center; border: 1px dashed rgba(255,255,255,0.2);">
-            <p style="color: #8b949e; font-size: 1.1rem;">Waiting for PDF Data Stream Uplink...</p>
-            <p style="color: #484f58; font-size: 0.9rem;">Please upload a contract via the Sidebar Terminal.</p>
+        <div style="text-align:center; padding: 100px 0; color: #8b949e;">
+            <p class="hud-label">WAITING_FOR_INPUT</p>
+            <p style="font-size: 1.1rem;">Load a PDF document into the Uplink Terminal to begin.</p>
         </div>
     """, unsafe_allow_html=True)
