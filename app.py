@@ -222,12 +222,18 @@ if uploaded_file:
         """, unsafe_allow_html=True)
 
 else:
-    # Empty State - Call to Action
-    st.markdown('<br>' * 2, unsafe_allow_html=True)
+    # Empty State - AI Command Center Look
+    st.markdown('<br>' * 4, unsafe_allow_html=True)
     st.markdown("""
-        <div style="text-align:center; padding: 120px 40px; border: 1px solid rgba(255,255,255,0.05); border-radius: 40px; background: radial-gradient(circle at center, rgba(88, 166, 255, 0.05) 0%, transparent 70%);">
-            <h2 style="font-weight:600; font-size:2rem;">Ready to automate?</h2>
-            <p style="color:rgba(255,255,255,0.4); margin-bottom:32px;">Drag and drop your contract PDF to the side terminal to begin the audit.</p>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <div style="width: 100%; max-width: 800px; padding: 20px 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; display: flex; align-items: center; margin-bottom: 40px;">
+                <span style="color: #58A6FF; margin-right: 15px; font-family: 'JetBrains Mono', monospace;">﹥</span>
+                <span style="color: rgba(255,255,255,0.2); font-size: 1.1rem; font-family: 'Geist', sans-serif;">Search clauses, analyze risks, or ask legal questions...</span>
+            </div>
+            <h2 style="font-weight:600; font-size:2.5rem; letter-spacing: -0.05em; margin-bottom: 10px;">Ready to automate?</h2>
+            <p style="color:rgba(255,255,255,0.4); max-width: 500px; line-height: 1.6;">
+                Unleash the power of Agentic AI. Drop your contract PDF into the Uplink Terminal to perform a deep structural risk audit.
+            </p>
         </div>
     """, unsafe_allow_html=True)
 
