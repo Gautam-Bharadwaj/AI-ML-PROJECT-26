@@ -9,31 +9,46 @@ st.set_page_config(page_title="Contract Risk Analyzer", page_icon="⚖️", layo
 
 st.markdown("""
     <style>
-    .main {
-        background-color: #f5f7f9;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    
+    .stApp {
+        background: radial-gradient(circle at 50% 50%, #0d1117 0%, #010409 100%);
+        color: #e6edf3;
+        font-family: 'Inter', sans-serif;
     }
-    .stAlert {
-        padding: 1rem;
-        border-radius: 0.5rem;
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
+    
     .high-risk {
-        background-color: #ff4b4b22;
-        border-left: 5px solid #ff4b4b;
-        padding: 15px;
-        margin-bottom: 10px;
-        border-radius: 5px;
+        border-left: 4px solid #ff4b4b;
+        background: linear-gradient(90deg, rgba(255, 75, 75, 0.1) 0%, rgba(255, 75, 75, 0.02) 100%);
     }
+    
     .low-risk {
-        background-color: #28a74522;
-        border-left: 5px solid #28a745;
-        padding: 15px;
-        margin-bottom: 10px;
-        border-radius: 5px;
+        border-left: 4px solid #28a745;
+        background: linear-gradient(90deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.02) 100%);
+    }
+
+    h1, h2, h3 {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #58a6ff;
     }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("⚖️ AI Legal Document Risk Analysis")
+st.image("/Users/karanthakur/.gemini/antigravity/brain/d5dfa2a2-627e-4317-a1a2-c378ff4115a4/futuristic_legal_header_bg_1771669071836.png", use_container_width=True)
+st.title("⚖️ Legal Intelligence Matrix")
+st.markdown("<p style='font-size: 1.1rem; color: #8b949e;'>Advanced Risk Assessment & Clause Classification Agent</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 with st.sidebar:
