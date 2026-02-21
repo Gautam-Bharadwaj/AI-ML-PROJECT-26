@@ -24,3 +24,5 @@ def predict_risk(text):
             'is_risky': bool(prediction[i]),
             'risk_probability': float(probabilities[i][1])
         }
+        results.append(result)
+        
