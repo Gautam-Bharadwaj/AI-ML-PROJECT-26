@@ -1,47 +1,30 @@
-# Intelligent Contract Risk Analysis and Agentic Legal Assistance System
+# AI-Driven Legal Document Analysis System
 
-## Project Objective
-AI-driven system for analyzing legal documents to identify and classify risky clauses.
+Design and implement an AI-driven legal document analysis system that identifies and classifies risky clauses in contracts.
 
-## Project Structure
-```text
-.
-├── data/               # Project data
-│   ├── processed/      # Cleaned data ready for ML
-│   └── raw/            # Original PDF/Text contracts
-├── models/             # Trained ML models (pkl, joblib)
-├── notebooks/          # Jupyter notebooks for exploration
-├── src/                # Source code
-│   ├── clause_splitter.py
-│   ├── predict.py
-│   ├── preprocess.py
-│   └── train_model.py
-├── app.py              # Streamlit Web Interface
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
-```
+## 🚀 Getting Started
 
-## Technical Stack (Milestone 1)
-* **Language:** Python 3.x
-* **NLP / ML:** scikit-learn, NLTK, spaCy
-* **Extraction:** PyMuPDF (fitz)
-* **UI:** Streamlit
-* **Hosting:** Streamlit Community Cloud
+1.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## Milestone 1 Roadmap
-- [x] Structure Setup
-- [x] Basic Preprocessing Logic
-- [x] Clause Segmentation Logic
-- [ ] PDF Text Extraction Script
-- [ ] Model Training on Kaggle/IndianKanoon Dataset
-- [ ] Streamlit UI Implementation
+2.  **Run the Application:**
+    ```bash
+    streamlit run app.py
+    ```
 
-## Setup
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the App:
-   ```bash
-   streamlit run app.py
-   ```
+## 📁 Project Structure
+
+- `app.py`: Main Streamlit application.
+- `src/`: Core logic modules.
+    - `extract.py`: PDF text extraction.
+    - `clause_splitter.py`: Segmenting text into clauses.
+    - `predict.py`: Risk classification logic.
+    - `preprocess.py`: Text cleaning utilities.
+- `requirements.txt`: Project dependencies.
+
+## 👥 Karan's Task: Application & UI Development
+- Streamlit UI for PDF upload.
+- Risk Dashboard (High Risk -> Red, Low Risk -> Green).
+- End-to-end integration of extraction and prediction.
