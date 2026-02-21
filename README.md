@@ -20,7 +20,11 @@ Design and implement an AI-driven legal document analysis system that identifies
     - [x] RandomForest Classification model
     - [x] Model persistence (saving to .pkl)
     - [x] Risk prediction utility
-- [ ] Building the Streamlit interface (Karan Thakur)
+- [x] Building the Streamlit interface (Karan Thakur)
+    - [x] HUD-inspired UI Design (Succesship style)
+    - [x] PDF Upload & Automated Extraction integration
+    - [x] Visual Risk Assessment Matrix (Clause-by-Clause)
+    - [x] Real-time Risk Telemetry & Metrics
 
 ## How to Run (Workflow)
 1. **Install what's needed:**
