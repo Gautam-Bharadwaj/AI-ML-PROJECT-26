@@ -6,6 +6,7 @@ This document describes the flow of information and processing steps in the Inte
 This diagram shows how the user interacts with the system and how the background processes handle the data.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1f2937', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3b82f6', 'lineColor': '#60a5fa', 'secondaryColor': '#111827', 'tertiaryColor': '#1f2937'}}}%%
 graph TD
     User([User/Legal Professional]) -->|Uploads PDF| UI[Streamlit Interface]
     UI -->|Sends PDF| Extractor[PDF Text Extractor]
@@ -20,6 +21,7 @@ graph TD
 This flow represents the work completed for the initial ML-based classification.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1f2937', 'primaryTextColor': '#fff', 'primaryBorderColor': '#10b981', 'lineColor': '#34d399'}}}%%
 flowchart LR
     A[Contract PDF] --> B(PyMuPDF Extraction)
     B --> C{Text Available?}
