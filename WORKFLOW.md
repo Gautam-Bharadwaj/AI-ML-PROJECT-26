@@ -48,22 +48,29 @@ stateDiagram-v2
     FinalReport --> [*]
 ```
 
-## 4. Work Division Map
-How the team is contributing to the project.
+## 4. Team Responsibilities & Work Division
+This map outlines the specialized roles for Phase 1 and Phase 2.
 
 ```mermaid
 mindmap
-  root((Project 26))
+  root((fa:fa-project-diagram Project 26))
+    ::icon(fa fa-users)
     Kumar Gautam
+      ::icon(fa fa-database)
       Data Engineering
-      PDF Extraction
-      Preprocessing
+      PDF Extraction Logic
+      Text Preprocessing
     Mohit Kourav
-      ML Training
-      Risk Prediction
-      LLM Integration
+      ::icon(fa fa-brain)
+      ML Model Training
+      Risk Prediction Engine
+      LLM Assistance Logic
     Karan Thakur
-      Streamlit UI
+      ::icon(fa fa-desktop)
+      Streamlit Web UI
       Risk Visualization
-      Report Generation
+      Audit Report Export
 ```
+
+## 5. System Themes & Styling
+*All diagrams use the 'Base' modern theme with customized node coloring for readability.*
