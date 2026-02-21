@@ -8,3 +8,8 @@ def load_predictor():
         raise FileNotFoundError("Model file not found. Please train the model first.")
     
     return joblib.load(model_path)
+
+def predict_risk(text):
+    model = load_predictor()
+    if isinstance(text, str):
+        text = [text]
