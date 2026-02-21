@@ -85,7 +85,7 @@ if uploaded_file:
         os.remove(temp_path)
 
     # Risk Dashboard
-    st.subheader("📊 Risk Assessment Dashboard")
+    st.markdown("### 📊 Neural Risk Analysis Dashboard")
     df = pd.DataFrame(results)
     
     col1, col2, col3 = st.columns(3)
@@ -93,25 +93,51 @@ if uploaded_file:
     high_risk_count = len(df[df['label'] == "High Risk"])
     low_risk_count = total_clauses - high_risk_count
     
-    col1.metric("Total Clauses", total_clauses)
-    col2.metric("High Risk Identified", high_risk_count, delta_color="inverse")
-    col3.metric("Low Risk Identified", low_risk_count)
+    with col1:
+        st.markdown(f"""
+            <div class="glass-card">
+                <p style='color: #8b949e; font-size: 0.9rem;'>Total Data Segments</p>
+                <h2 style='color: #58a6ff;'>{total_clauses}</h2>
+            </div>
+        """, unsafe_allow_html=True)
+        
+    with col2:
+        st.markdown(f"""
+            <div class="glass-card" style="border-top: 2px solid #ff4b4b;">
+                <p style='color: #8b949e; font-size: 0.9rem;'>High-Risk Anomalies</p>
+                <h2 style='color: #ff4b4b;'>{high_risk_count}</h2>
+            </div>
+        """, unsafe_allow_html=True)
+        
+    with col3:
+        st.markdown(f"""
+            <div class="glass-card" style="border-top: 2px solid #28a745;">
+                <p style='color: #8b949e; font-size: 0.9rem;'>Safe Protocols</p>
+                <h2 style='color: #28a745;'>{low_risk_count}</h2>
+            </div>
+        """, unsafe_allow_html=True)
     
     st.markdown("---")
     
     # Detailed Analysis
-    st.subheader("🔍 Detailed Clause Analysis")
+    st.markdown("### 🔍 Deep Core Analysis")
     
     for _, row in df.iterrows():
         st_class = "high-risk" if row['label'] == "High Risk" else "low-risk"
-        color = "#ff4b4b" if row['label'] == "High Risk" else "#28a745"
+        icon = "🔴" if row['label'] == "High Risk" else "🟢"
         
         st.markdown(f"""
-            <div class="{st_class}">
-                <p style="color: {color}; font-weight: bold; margin-bottom: 5px;">
-                    {row['label'].upper()} (Confidence: {row['score']:.2f})
-                </p>
-                <p style="color: #333;">{row['clause']}</p>
+            <div class="glass-card {st_class}">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: bold; letter-spacing: 0.1em; color: #58a6ff;">{icon} {row['label'].upper()}</span>
+                    <span class="risk-score" style="color: #8b949e;">INITIATING PROBABILITY: {row['score']:.2f}</span>
+                </div>
+                <div style="margin-top: 15px; color: #d1d5db; line-height: 1.6;">
+                    {row['clause']}
+                </div>
+                <div style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
+                    <span style="font-size: 0.8rem; color: #8b949e; font-style: italic;">AI Insight: This segment contains patterns typical of {row['label'].lower()} scenarios.</span>
+                </div>
             </div>
         """, unsafe_allow_html=True)
 else:
