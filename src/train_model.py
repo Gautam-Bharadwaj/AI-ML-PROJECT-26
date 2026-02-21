@@ -13,3 +13,6 @@ def train_and_save_model():
     
     df = pd.read_csv(data_path)
     df.dropna(subset=['cleaned_text', 'clause_status'], inplace=True)
+    
+    X = df['cleaned_text']
+    y = df['clause_status'].astype(int)
