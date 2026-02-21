@@ -37,7 +37,7 @@ AI-driven system for analyzing legal documents to identify and classify risky cl
 - [ ] Training the ML model (Mohit Kourav)
 - [ ] Building the Streamlit interface (Karan Thakur)
 
-## How to Run (Gautam Workflow)
+## How to Run (Workflow)
 1. **Install what's needed:**
    ```bash
    pip install -r requirements.txt
