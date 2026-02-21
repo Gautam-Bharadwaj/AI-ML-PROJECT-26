@@ -2,29 +2,39 @@
 
 Design and implement an AI-driven legal document analysis system that identifies and classifies risky clauses in contracts.
 
-## 🚀 Getting Started
+##  Getting Started
 
 1.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-2.  **Run the Application:**
-    ```bash
-    streamlit run app.py
-    ```
+## Project Roadmap
+- [x] Directory structure setup (Kumar Gautam)
+- [x] Basic text cleaning logic (Kumar Gautam)
+- [x] Clause splitting methods (Kumar Gautam)
+- [x] PDF text extraction helpers (Kumar Gautam)
+- [x] Automated data preparation script (Kumar Gautam)
+- [x] ML Model Training & Pipeline (Mohit Kourav)
+    - [x] TF-IDF Vectorization logic
+    - [x] RandomForest Classification model
+    - [x] Model persistence (saving to .pkl)
+    - [x] Risk prediction utility
+- [ ] Building the Streamlit interface (Karan Thakur)
 
-## 📁 Project Structure
+## How to Run (Workflow)
+1. **Install what's needed:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Setup the Dataset:**
+   Run this to clean your raw data and get it ready for training:
+   ```bash
+   python3 src/prepare_dataset.py
+   ```
+   *This will create: `data/processed/cleaned_legal_clauses.csv`*
 
-- `app.py`: Main Streamlit application.
-- `src/`: Core logic modules.
-    - `extract.py`: PDF text extraction.
-    - `clause_splitter.py`: Segmenting text into clauses.
-    - `predict.py`: Risk classification logic.
-    - `preprocess.py`: Text cleaning utilities.
-- `requirements.txt`: Project dependencies.
-
-## 👥 Karan's Task: Application & UI Development
-- Streamlit UI for PDF upload.
-- Risk Dashboard (High Risk -> Red, Low Risk -> Green).
-- End-to-end integration of extraction and prediction.
+3. **Launch the App:**
+   ```bash
+   streamlit run app.py
+   ```
