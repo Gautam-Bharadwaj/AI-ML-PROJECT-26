@@ -126,14 +126,6 @@ with col_upload:
         st.markdown('<div class="risk-tag risk-low" style="text-align:center;">UPLINK_SUCCESSFUL</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Sidebar - System Info Only
-with st.sidebar:
-    st.markdown('<br>' * 2, unsafe_allow_html=True)
-    st.markdown('<span class="label-mono">System Status</span>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Core Engine: Active<br>Latency: 42ms<br>Version: 2.0.1</p>', unsafe_allow_html=True)
-    st.markdown('---', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:0.7rem; color:rgba(255,255,255,0.2);">LEGAL_NODE_01 // SECURE_ENCRYPTION_ACTIVE</p>', unsafe_allow_html=True)
-
 # Logic Section
 if uploaded_file:
     temp_name = "active_contract.pdf"
@@ -158,6 +150,7 @@ if uploaded_file:
         os.remove(temp_name)
 
     # Dashboard Metrics (Bento Style)
+    st.markdown('<br>', unsafe_allow_html=True)
     st.markdown('<span class="label-mono">Intelligence Report</span>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     
@@ -183,7 +176,7 @@ if uploaded_file:
         st.markdown(f"""
             <div class="bento-card">
                 <span class="label-mono" style="color:#34C759;">Integrity</span>
-                <h2 style="font-size:2.5rem; font-weight:800; color:#34C759; margin-top:10px;">{int((len(processed_data)-risky_count)/len(processed_data)*100)}%</h2>
+                <h2 style="font-size:2.5rem; font-weight:800; color:#34C759; margin-top:10px;">{int((len(processed_data)-risky_count)/len(processed_data)*100) if len(processed_data)>0 else 0}%</h2>
                 <p style="color:rgba(100,255,100,0.4); font-size:0.8rem;">SAFE_SYMBOLS_RATIO</p>
             </div>
         """, unsafe_allow_html=True)
@@ -217,3 +210,12 @@ else:
             <p style="color:rgba(255,255,255,0.4); margin-bottom:32px;">Drag and drop your contract PDF to the side terminal to begin the audit.</p>
         </div>
     """, unsafe_allow_html=True)
+
+# Footer
+st.markdown("<br>" * 5, unsafe_allow_html=True)
+st.markdown("""
+<div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+    <span class="label-mono" style="opacity: 0.3; font-size: 0.6rem;">LEGAL_NODE_01 // SECURE_ENCRYPTION_ACTIVE</span>
+    <span class="label-mono" style="opacity: 0.3; font-size: 0.6rem;">SYSTEM_NOMINAL // LATENCY_42MS // V2.0.1</span>
+</div>
+""", unsafe_allow_html=True)
