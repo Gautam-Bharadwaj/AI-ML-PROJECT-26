@@ -23,3 +23,6 @@ def train_and_save_model():
         ('vectorizer', TfidfVectorizer(max_features=5000, stop_words='english')),
         ('classifier', RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1))
     ])
+    
+    model.fit(X_train, y_train)
+    
