@@ -72,7 +72,7 @@ if uploaded_file:
     with open(temp_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
         
-    with st.spinner("Extracting text and analyzing clauses..."):
+    with st.spinner("⚡ Initializing Neural Core and Parsing Data Streams..."):
         text = extract_text_from_pdf(temp_path)
         clauses = split_into_clauses(text)
         
@@ -146,4 +146,9 @@ if uploaded_file:
             </div>
         """, unsafe_allow_html=True)
 else:
-    st.info("Please upload a contract PDF to begin the analysis.")
+    st.markdown("""
+        <div class="glass-card" style="text-align: center; border: 1px dashed rgba(255,255,255,0.2);">
+            <p style="color: #8b949e; font-size: 1.1rem;">Waiting for PDF Data Stream Uplink...</p>
+            <p style="color: #484f58; font-size: 0.9rem;">Please upload a contract via the Sidebar Terminal.</p>
+        </div>
+    """, unsafe_allow_html=True)
