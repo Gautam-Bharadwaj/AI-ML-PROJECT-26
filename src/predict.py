@@ -13,3 +13,6 @@ def predict_risk(text):
     model = load_predictor()
     if isinstance(text, str):
         text = [text]
+    
+    prediction = model.predict(text)
+    probabilities = model.predict_proba(text)
