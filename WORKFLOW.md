@@ -61,11 +61,11 @@ This map outlines the specialized roles for Phase 1 and Phase 2.
     'textColor': '#000000',
     'mainBkg': '#FFFFFF',
     'nodeTextColor': '#000000',
-    'cScale0': '#FFFFFF',
+    'cScale0': '#FF0000',
     'cScale1': '#FFFFFF',
     'cScale2': '#FFFFFF',
     'cScale3': '#FFFFFF',
-    'cScaleLabel0': '#000000',
+    'cScaleLabel0': '#FFFFFF',
     'cScaleLabel1': '#000000',
     'cScaleLabel2': '#000000',
     'cScaleLabel3': '#000000'
@@ -74,19 +74,19 @@ This map outlines the specialized roles for Phase 1 and Phase 2.
 mindmap
   root((fa:fa-project-diagram AI-ML))
     ::icon(fa fa-users)
-    Kumar Gautam
+    **Kumar Gautam**
       ::icon(fa fa-desktop)
       Data Engineering & OCR
       Legal Metadata Extraction
       Streamlit HUD-Logic & Dashboard
       Automated Audit Integration
-    Mohit Kourav
+    **Mohit Kourav**
       ::icon(fa fa-brain)
       Intelligence Logic Microservices
       Graph-based Reasoning Architecture
       Statistical Risk Variance Mapping
       Validation Verification Framework
-    Karan Thakur
+    **Karan Thakur**
       ::icon(fa fa-file-export)
       Multiformat Report Generation Engine
       Relational Persistence Layers (SQLite)
