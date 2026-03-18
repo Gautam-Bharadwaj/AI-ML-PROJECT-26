@@ -144,3 +144,13 @@ class LegalReasoningAgent:
         # Add Edges
         builder.set_entry_point("analyze")
         builder.add_edge("analyze", "identify_risks")
+        builder.add_edge("identify_risks", "validate")
+        
+        # Conditional Edge (Loop)
+        builder.add_conditional_edges(
+            "validate",
+            self._should_continue,
+            {
+                "continue": "analyze",
+                "end": "finalize"
+            }
