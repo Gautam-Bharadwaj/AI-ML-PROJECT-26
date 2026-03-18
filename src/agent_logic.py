@@ -64,3 +64,13 @@ class LegalReasoningAgent:
         logger.info(f"Node: Analyze [Iteration {state['iterations'] + 1}]")
         prompt = f"Target Clause:\n{state['clause']}"
         if state.get('review'):
+            prompt += f"\n\nPrevious Review Feedback:\n{state['review'].get('correction_instructions', '')}"
+            
+        result = self._call_llm_json(CLAUSE_ANALYZER_SYSTEM, prompt)
+        state['analysis'] = result
+        state['iterations'] += 1
+        return state
+
+    def risk_id_node(self, state: AgentState) -> AgentState:
+        logger.info("Node: Risk Identification")
+        user_input = f"Clause Content:\n{state['clause']}\n\nTechnical Analysis:\n{state['analysis']}"
