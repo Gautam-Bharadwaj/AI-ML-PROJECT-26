@@ -57,18 +57,18 @@ This map outlines the specialized roles for Phase 1 and Phase 2.
 %%{init: {
   'theme': 'base',
   'themeVariables': {
-    'primaryColor': '#1f2937',
-    'textColor': '#ffffff',
-    'mainBkg': '#1f2937',
-    'nodeTextColor': '#ffffff',
-    'cScale0': '#4f46e5',
-    'cScale1': '#0891b2',
-    'cScale2': '#059669',
-    'cScaleLabel0': '#ffffff',
-    'cScaleLabel1': '#ffffff',
-    'cScaleLabel2': '#ffffff',
-    'cScale3': '#7c3aed',
-    'cScaleLabel3': '#ffffff'
+    'primaryColor': '#FF8C00',
+    'textColor': '#000000',
+    'mainBkg': '#FFFFFF',
+    'nodeTextColor': '#000000',
+    'cScale0': '#FFFFFF',
+    'cScale1': '#FFFFFF',
+    'cScale2': '#FFFFFF',
+    'cScale3': '#FFFFFF',
+    'cScaleLabel0': '#000000',
+    'cScaleLabel1': '#000000',
+    'cScaleLabel2': '#000000',
+    'cScaleLabel3': '#000000'
   }
 }}%%
 mindmap
