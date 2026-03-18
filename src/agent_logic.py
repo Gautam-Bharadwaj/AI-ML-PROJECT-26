@@ -54,3 +54,13 @@ class LegalReasoningAgent:
         response = self.llm.invoke(messages)
         parsed = parse_json_with_retry(response.content)
         
+        if parsed is None:
+            # Simple fallback if JSON fails again
+            logger.warning("JSON parsing failed, returning empty dict.")
+            return {}
+        return parsed
+
+    def analyze_node(self, state: AgentState) -> AgentState:
+        logger.info(f"Node: Analyze [Iteration {state['iterations'] + 1}]")
+        prompt = f"Target Clause:\n{state['clause']}"
+        if state.get('review'):
