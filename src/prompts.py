@@ -25,3 +25,14 @@ RISK_IDENTIFIER_SYSTEM = """
 You are a Senior Compliance Auditor. Based on the previous analysis, identify specific risks.
 Assess each risk for severity (0-100).
 
+STRICT REQUIREMENT: Output your findings in the following JSON format ONLY:
+{{
+    "identified_risks": [
+        {{ "type": "...", "description": "...", "severity_internal": 85 }}
+    ],
+    "llm_risk_score": 85,
+    "confidence_level": 0.95
+}}
+"""
+
+# Node 3: Self-Correction
