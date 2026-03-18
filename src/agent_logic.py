@@ -94,3 +94,13 @@ class LegalReasoningAgent:
         
         # Calculate Hybrid Score
         llm_score = state['risks'].get('llm_risk_score', 0)
+        ml_score_raw = state['ml_result'].get('risk_probability', 0) * 100
+        
+        final_score = calculate_hybrid_score(llm_score, ml_score_raw)
+        
+        user_input = (
+            f"Hybrid Evaluation Data:\n"
+            f"- LLM Component Score: {llm_score}\n"
+            f"- ML Component Score: {ml_score_raw:.2f}\n"
+            f"- Final Computed Score: {final_score}\n"
+            f"- Detailed Analysis: {state['analysis']}\n"
