@@ -31,3 +31,13 @@ class LegalMLModel:
         
         try:
             # The model is a Pipeline including TfidfVectorizer
+            prediction = self.model.predict([text])[0]
+            probabilities = self.model.predict_proba([text])[0]
+            
+            return {
+                "is_risky": bool(prediction),
+                "risk_probability": float(probabilities[1]) # Prob of class 1 (risky)
+            }
+        except Exception as e:
+            logger.error(f"ML Prediction Error: {e}")
+            return {"is_risky": False, "risk_probability": 0.0}
