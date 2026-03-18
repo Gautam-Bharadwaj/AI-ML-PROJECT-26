@@ -4,3 +4,8 @@ scikit-learn
 nltk
 PyMuPDF==1.25.3
 python-dotenv
+plotly
+openai
+langchain
+langchain-openai
+langgraph
