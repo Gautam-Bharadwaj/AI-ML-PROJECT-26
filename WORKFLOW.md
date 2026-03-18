@@ -75,21 +75,19 @@ mindmap
   root((fa:fa-project-diagram AI-ML))
     ::icon(fa fa-users)
     Kumar Gautam
-      ::icon(fa fa-database)
-      Data Engineering
-      PDF Extraction Logic
-      Text Preprocessing
-      Dataset Preparation Pipeline
+      ::icon(fa fa-desktop)
+      Data Engineering & OCR
+      Legal Metadata Extraction
+      Streamlit HUD-Logic & Dashboard
+      Automated Audit Integration
     Mohit Kourav
       ::icon(fa fa-brain)
-      ML Model Training
-      Risk Prediction Engine
-      LLM Assistance Logic
+      ML Classification Engine
+      Reasoning Logic Backend
     Karan Thakur
-      ::icon(fa fa-desktop)
-      Streamlit Web UI
-      Risk Visualization
-      Audit Report Export
+      ::icon(fa fa-file-export)
+      Audit Report Export Logic
+      Backend Data Persistence
 ```
 
 ## 5. System Themes & Styling
